@@ -1,20 +1,20 @@
-import React, { useRef, useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useContext, useRef, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
+import { AppContext } from '../App';
 
-const CvEducation = ({data,handlerChange,changeDate}) => {
-    const [selectedOption,setSelectedOption] = useState('')
- const education = [
-    'SD',
-    'SMP',
-    'SMA/SMK',
-    'University'
- ]
-    
-const handleChange = (event) => {
-    setSelectedOption(event.target.value);
+
+
+const CvEducation = () => {
+  const {value} = useContext(AppContext)
+  const navigate = useNavigate()
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // perform form submission logic
+    navigate('/create-cv/add-more');
   }
 
+  
     return(
 <div className='is-flex flex-column gap-6 p-4'>
             <ul className=''>
@@ -22,19 +22,19 @@ const handleChange = (event) => {
                 <li><p className='is-title '>Include your full name and at least one way for employers to contact you.</p></li>            
             </ul>
 
-<form className='is-flex flex-column gap-3'>
+<form className='is-flex flex-column gap-3' onSubmit={handleSubmit }>
 
 <div class="field is-horizontal">
 <div class="field-body">
 
 <div class="field">
     <label class="label">School Name</label>
-    <input class="input " type="text" name='school_name' defaultValue={data.school_name} placeholder="e.g Indonesia" onChange={handlerChange} />
+    <input class="input " type="text" name='school_name' defaultValue={value.data.school_name} placeholder="e.g Indonesia" onChange={value.handlerChange} />
 </div>
 
 <div class="field">
     <label class="label">School Location</label>
-    <input class="input " type="text" name='school_location' defaultValue={data.school_location} placeholder="e.g Indonesia" onChange={handlerChange} />
+    <input class="input " type="text" name='school_location' defaultValue={value.data.school_location} placeholder="e.g Indonesia" onChange={value.handlerChange} />
 </div>
 
   </div>
@@ -44,13 +44,13 @@ const handleChange = (event) => {
 <div class="field-body">
 <div class="field date">
 <label class="label">FIELD OF STUDY</label>
-    <input class="input " type="text" name='school_field' defaultValue={data.school_field} placeholder="e.g Indonesia" onChange={handlerChange} />
+    <input class="input " type="text" name='school_field' defaultValue={value.data.school_field} placeholder="e.g Indonesia" onChange={value.handlerChange} />
 </div>
     <div class="field">
     <label class="label">YEAR OF GRADUATION</label>
     <DatePicker
-     selected={data.school_graduate}
-     onChange={(date) => changeDate('school_graduate', date)}
+     selected={value.data.school_graduate}
+     onChange={(date) => value.changeDate('school_graduate', date)}
         className='input'
         name='school_graduate'
       />
@@ -60,11 +60,12 @@ const handleChange = (event) => {
 
   </form>
 
-
   <div className='is-flex align-center justify-between'>
     <Link to='/create-cv/experience' className='button is-medium'>Back</Link>
-    <Link to='/create-cv/experience' className='button is-primary is-medium'>Continue</Link>
-  </div>
+    <Link to='/create-cv/add-more-education' className='button is-primary is-medium'>Continue</Link>
+</div>
+
+
         </div>
     )
 }

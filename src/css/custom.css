@@ -244,6 +244,9 @@ line-height:  1.5rem !important;
 }
 .no-border{
     border: none !important;
+    outline: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
 }
 
 .divider{
@@ -297,7 +300,7 @@ width: 25% !important;
 /* LIST */
 
 .dot-list li{
-list-style:disc!important;
+list-style:disc !important;
 }
 
 .alfa-list li{
