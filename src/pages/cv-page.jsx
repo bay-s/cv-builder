@@ -14,12 +14,13 @@ const  CvPage = () =>  {
 	const {value} = useContext(AppContext)
 
 	return (
-<div className='container' id='container'>
-<PDFViewer style={style.viewer}>
+<div className='container red mx-auto' id='container'>
+   <div className='cv-container'>
+<PDFViewer style={style.viewer} className='pdf-viewer'>
 {/* Start of the document*/}
 <Document>
 {/*render a single page*/}
-<Page size="A4" style={style.page}>
+<Page size="A4" style={style.page} className='test'>
 {/* ABOUT */}
 <PdfAbout value={value} />
  {/* END ABOUT */}
@@ -38,6 +39,7 @@ const  CvPage = () =>  {
 		  </Page>
 </Document>
 </PDFViewer>
+   </div>
 </div>
 	);
   }

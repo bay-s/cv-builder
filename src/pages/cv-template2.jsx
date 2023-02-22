@@ -1,101 +1,63 @@
 import React from 'react'
 
-const CvTemplate2 = ({data,refs,data2}) => {
-
-const date = new Date(data.birth_date);
-const options = { month: 'short', day: '2-digit', year: 'numeric' };
-const birthDate = date.toLocaleDateString('en-US', options).replace(/\//g, '-');
-
-
-const datez = new Date(data.end_date);
-const endDate = datez.toLocaleDateString('en-US', options).replace(/\//g, '-');
-
-const dates = new Date(data.start_date);
-const startDate = dates.toLocaleDateString('en-US', options).replace(/\//g, '-');
+const CvTemplate2 = () => {
 
     return(
-<div className='container red p-3' ref={refs} >
 
-    
-<div className='columns is-multiline '>
+<div className='columns is-multiline is-centered'>
 {/* COL LEFT */}
  <div className='column is-5 has-background-dark'>
- <div className='box no-bg is-flex flex-column  gap-2 align-center txt-white'>
-<h3 className='is-bold banner-title txt-white is-size-4'>
-   {
-      data.firstname === '' ? 'Your First name'
-      : data.firstname
-   }
-   {
-      data.surename === '' ? 'Your surename'
-      : data.surename
-}
-</h3>
-<figure class="image is-96x96">
+<div className='box no-bg is-flex flex-column gap-2 align-center txt-white'>
+ <ul className='is-flex flex-column'>
+<li> <h3 className='is-bold is-title txt-white is-size-3'>
+John
+</h3></li>
+<li><h3 className='is-bold is-title  txt-white is-size-3'>
+Doe
+</h3></li>
+ </ul>
+<figure class="image is-128x128">
   <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" />
 </figure>
 
-<ul className='is-flex flex-column'>
-   <li><span className='is-title is-size-7'>Date Of Birth :</span></li>
-   <li><span className='is-size-7'>{birthDate}</span></li>
-</ul>
+</div>
 
-<p className='lh-base is-size-7 text-center text-wrap'>
-{
-   data.about === '' ? 'About yourself'
-   : data.about
-}
-</p>
-
-<div className='is-flex flex-column gap-1 align-center'>
-<h3 className='txt-white is-size-4 is-bold is-title  txt-white'>Contact</h3>
-
-<ul className='is-flex flex-column gap-1'>
-	<li className='is-flex align-center gap-1'>
-		<i className='fa fa-map-marker'></i>
-		<span className='is-size-7'>
-         {data.city === '' ? 'City' : data.city } ,
-         {data.province === '' ? 'Province' : data.province } ,
-         {data.post === '' ? 'Post' : data.post } 
-      </span>
-	</li>
-	<li className='is-flex align-center gap-1'>
-		<i className='fa fa-phone'></i>
-		<span className='is-size-7'>
-         {
-            data.phone === '' ? 'Your phone number' 
-            : data.phone
-         }
-      </span>
-	</li>
-	<li className='is-flex align-center gap-1'>
-		<i className='fa fa-envelope'></i>
-		<span className='underline is-clickable is-size-7'>
-      {
-            data.email === '' ? 'Your email' 
-            : data.email
-         }
-      </span>
-	</li>
-	<li className='is-flex align-center gap-1'>
-	<i class="fa fa-globe" aria-hidden="true"></i>
-		<span className='is-size-7'>Website.com</span>
-	</li>
-	<li className='is-flex align-center gap-1'>
-	<i class="fa fa-github" aria-hidden="true"></i>
-		<span className='is-size-7'>Github</span>
-	</li>
+<div className='is-flex flex-column gap-2 align-start p-3 txt-white'>
+<h3 className='txt-white is-title border-butt '>Skills </h3>
+<ul className='is-flex flex-column gap-1 dot-list px-4'>
+ <li className='txt-small'>HTML</li>
+ <li className='txt-small'>JAVASCRIPT</li>
+ <li className='txt-small'>CSS</li>
+ <li className='txt-small'>MySql</li>
+ <li className='txt-small'>PHP</li>
 </ul>
 
 </div>
-			 </div>
+
  </div>
 {/* END COL LEFT */}
 {/* START COL RIGHT */}
- <div className='column is-7 '>
-   <section className='is-flex flex-column gap-4'>
+ <div className='column is-7 box p-5'>
+<section className='is-flex flex-column gap-1'>
+   {/* ADRESS */}
+<ul className='is-flex flex-column align-start'>
+   <li className='txt-small is-title'>City, Province, Postal Code</li>
+   <li className='txt-small is-title'>(+62) 8958989</li>
+   <li className='txt-small is-title'>
+      <a href=''>youremail@gmail.com</a>
+   </li>
+</ul>
+   {/* ADRESS */}
+   {/* SUMMARY */}
+<div className='is-flex flex-column gap-1 align-start p-3 border-butt'>
+<h3 className='is-bold is-title '>Summary</h3>
+{/* <p className='lh-base txt-small'>
+AdBlock is free, user-supported software. It's important to us that anyone can use our software, regardless of whether they can contribute or not. But AdBlock isn't free to operate. We have salaries to pay and infrastructure costs to cover to support our 70 million users worldwide. Thankfully, many users do support AdBlock by contributing what they can afford to help support AdBlock's ongoing development. We couldn't exist without you. If you're able to support us, we'd appreciate it. Every contribution helps!
+</p> */}
+</div>
+   {/* END SUMMARY */}
     {/* START EDUCATION */}
-    <article className='is-flex flex-column gap-1'>
+<article className='is-flex flex-column gap-1 my-4'>
 				<div className='is-flex align-center gap-1  border-butt'>
                   <i class="fa fa-university " aria-hidden="true"></i>
                   <h3 className='is-title is-bold'>Education</h3>
@@ -105,17 +67,11 @@ const startDate = dates.toLocaleDateString('en-US', options).replace(/\//g, '-')
                      <ul className='is-flex flex-column gap-1 txt-small is-title'>
                         <li className='is-flex align-center gap-1'>
                             <span className=''>
-                              {
-                                 data.school_name === '' ? 'Your school name'
-                                 : data.school_name
-                              }
+                            Your school name
                             </span>
                             -
                             <span className=''>
-                            {
-                                 data.school_location === '' ? 'Your school name'
-                                 :  data.school_location
-                              }
+                            Your school name
                             </span>
                         </li>
                         <li className='is-flex align-center gap-1'>
@@ -129,7 +85,7 @@ const startDate = dates.toLocaleDateString('en-US', options).replace(/\//g, '-')
 	 </article>
 {/* END EDUCATION */}
 {/* START SKILL */}
-    <article className='is-flex flex-column gap-1'>
+    <article className='is-flex flex-column gap-1 my-4'>
 			<div className='is-flex align-center gap-1  border-butt'>
                 <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
                 <h3 className='is-title is-bold'>Skills</h3>
@@ -174,85 +130,36 @@ const startDate = dates.toLocaleDateString('en-US', options).replace(/\//g, '-')
 				  <i class="fa fa-suitcase " aria-hidden="true"></i>
                   <h3 className=' is-title is-bold'>Job Experience</h3>
 				</div>
-	{
-      data2.job_title.length < 1 ? 
+
       <div className='is-flex flex-column gap-2'>
                      <ul className='is-flex flex-column gap-1 txt-small is-title'>
                         <li className='is-flex align-center'>
                             <span className='is-title is-bold'>
-                              {
-                                 data.job_title === '' ? 'Your Job title'
-                                 : data.job_title
-                              }
+                            Your Job title
                             </span>
                         </li>
                         <li className='is-flex align-center gap-1'>
                             <span className='is-title is-bold'>
-                              {
-                                 data.employer === '' ? 'Company name'
-                                 : data.employer
-                              }
+                            Company name
                             </span>
                             -
                             <span className=''>
-                              {
-                                 data.city_job === '' ? 'Job location'
-                                 : data.city_job
-                              }
+                            Job location
                             </span>
                             -
                             <span className=''>
-                              {
-                                 data.country === '' ? 'Job Country'
-                                 : data.country
-                              }
+                            Job Country
                             </span>
                         </li>
                         <li className='is-flex align-center gap-1'>
                             <span className=''>
-                           {startDate} to {endDate}
+                        STARTDATE to ENDDATE
                             </span>
                         </li>
                      </ul>
 			    </div>
-     :
-     data2.job_title.map((el,index) => {
-      
-const datez = new Date(data2.end_date[index]);
-const endDates = datez.toLocaleDateString('en-US', options).replace(/\//g, '-');
 
-const dates = new Date(data2.start_date[index]);
-const startDates = dates.toLocaleDateString('en-US', options).replace(/\//g, '-');
 
-      return 	<div className='is-flex flex-column gap-2'>
-                     <ul className='is-flex flex-column gap-1 txt-small is-title'>
-                        <li className='is-flex align-center'>
-                            <span className='is-title is-bold'>
-                              {el}
-                            </span>
-                        </li>
-                        <li className='is-flex align-center gap-1'>
-                            <span className='is-title is-bold'>
-                              { data2.employer[index]}
-                            </span>
-                            -
-                            <span className=''>
-                              {data2.city_job[index]}
-                            </span>
-                            -
-                            <span className=''>
-                              {data2.country[index]}
-                            </span>
-                        </li>
-                        <li className='is-flex align-center gap-1'>
-                            <span className=''>
-                           {startDates} to {endDates}
-                            </span>
-                        </li>
-                     </ul>
-			    </div>
-     })
-   }
 	 </article>
 {/* END JOB EXPERIENCE */}
    </section>
@@ -260,7 +167,7 @@ const startDates = dates.toLocaleDateString('en-US', options).replace(/\//g, '-'
  {/* END COL RIGHT */}
 </div>
 
-</div>
+
     )
 }
 

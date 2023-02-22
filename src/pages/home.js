@@ -6,7 +6,7 @@ import img from '../img/cv.png'
 import img2 from '../img/cv.png'
 import img3 from '../img/banner2.jpg'
 import img4 from '../img/banner.jpg'
-import img5 from '../img/test.png'
+import img5 from '../img/test123.png'
 
 const Home = ({data}) => {
   const [image,setImage] = useState([])
@@ -35,7 +35,7 @@ const Home = ({data}) => {
         <p className='subtitle txt-dark lh-base'>
         Standing out. Professional. Recruiter-approved. Ready in minutes with our step-by-step builder.
         </p>
-        <Link to='/create-cv/header' className='button is-primary is-medium w-50'>Create your CV</Link>
+        <Link to='/template' className='button is-primary is-medium w-50'>Create your CV</Link>
       </div>
   </div>
    <div className='column is-6 '>

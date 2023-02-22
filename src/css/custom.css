@@ -168,7 +168,7 @@ line-height:  1.5rem !important;
 }
 
 .shadow-lg{
-    box-shadow:   0 1rem 3rem rgba(128, 128, 128, 0.247);
+    box-shadow: 0 1rem 3rem rgba(128, 128, 128, 0.247);
 }
 
 .border-r{
@@ -189,6 +189,16 @@ line-height:  1.5rem !important;
 
 .border-butt{
     border-bottom:1px solid rgba(128, 128, 128, 0.247) ;
+}
+
+.cover{
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+.contain{
+    object-fit: contain !important;
+    object-position: center !important;
 }
 /* END TEXT ALIGN */
 

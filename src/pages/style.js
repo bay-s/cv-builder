@@ -21,8 +21,8 @@ export const style = StyleSheet.create({
 		alignItems:'center'
 	},
 	viewer: {
-	  width:window.innerWidth, //the pdf viewer will take up all of the width and height
 	  height: window.innerHeight,
+	  width:1154, //the pdf viewer will take up all of the width and height
 	},
 	section_col:{
 		flexDirection:'column',
@@ -48,7 +48,7 @@ export const style = StyleSheet.create({
 		flexWrap:'wrap'
 	},flex_col:{
 		flexDirection:'column',
-		gap:10,
+		gap:15,
 	},
     fs_sm:{
         fontSize:12
@@ -88,6 +88,12 @@ export const style = StyleSheet.create({
     },
     fw_light:{
         fontWeight:'lighter' 
-    }
+    },
+	avatar:{
+		width:128,
+		height:128,
+		'object-fit':'contain',
+		borderRadius:'50%'
+	}
   });
   

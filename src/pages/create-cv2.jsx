@@ -1,6 +1,6 @@
 import React from 'react'
 import CvExperience from './cv-experience'
-import CvRightPage from './cv-right-page'
+import CvRightPage from './cv-template'
 
 
 const CreateCv2 = ({handlerChange,datas,method}) => {

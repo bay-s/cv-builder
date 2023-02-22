@@ -8,7 +8,7 @@ const dates = new Date(value.data.birth_date);
 const birth = dates.toLocaleDateString('en-US', options).replace(/\//g, '-');
 
     return(
-<View style={style.section_inner}>
+<View style={[style.section_inner,style.fs_sm]}>
         <View style={style.section_col}>
         <View style={style.flex}>
               <Text>{value.data.city}</Text>,

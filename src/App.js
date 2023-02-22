@@ -8,12 +8,13 @@ import Home from "./pages/home"
 import Cookies from 'js-cookie'
 import Footer from "./pages/footer"
 import NotFound from "./pages/404.j"
-import Invoice from "./pages/invoice"
 import CvPage from "./pages/cv-page"
 import CreateCv from "./pages/create-cv"
-import CvExperience from "./pages/cv-experience"
 import CreateCv2 from "./pages/create-cv2"
-import { PDFViewer } from '@react-pdf/renderer';
+import Template from "./pages/template"
+import CvTemplate2 from "./pages/cv-template2"
+import CvTemplate from "./pages/cv-template"
+
 
 export const AppContext = createContext()
 
@@ -24,9 +25,12 @@ const App = () => {
 
   const product = Cookies.get('product') 
   const productArr = product === undefined ? '' : JSON.parse(product)
-
+  const template = Cookies.get('template') 
+  const templatetArr = template=== undefined ? '' : JSON.parse(template)
+  
+  
   useEffect(() => {
-    console.log(productArr);
+
     const user = getUsers()
     supabase.auth.onAuthStateChange((event, session) => {
       if (event == 'SIGNED_IN') {
@@ -134,7 +138,13 @@ const deleteSkill = (index) => {
     school_location:'',
     school_graduate:null,
     school_field:'',
-    skills:[]
+    skills:[],
+    hide:false,
+    imgUpload:'',
+    url:'',
+    name:'',
+    imgName:'',
+    template:templatetArr
    })
 
    const [data2,setData2] = useState({
@@ -159,6 +169,24 @@ const handlerChange = (e) => {
 
    }
 
+const ImageChange = event => {
+    console.log(event.target.files);
+    if (event.target.files && event.target.files[0]) {
+      let img = event.target.files[0];
+      const randName =  (Math.random() + 1).toString(36).substring(3);
+      const imgStr = img.name.split(".")
+      setDatas({...datas,
+        imgUpload: URL.createObjectURL(img),
+        url:img,
+        name:img.name,
+        hide:true,
+        imgName:`${randName}.${imgStr[1]}`
+         })
+         console.log(URL.createObjectURL(img));
+      }
+      console.log(datas.imgUpload);
+  };
+
 const changeDate  = (name, date) => {
     setDatas(prevData => ({
       ...prevData,
@@ -170,7 +198,7 @@ const changeDate  = (name, date) => {
   const method = {
   selectedOption
    }
-
+console.log(datas.template);
   const submitEducation = () => {
   // e.preventDefault()
 
@@ -212,8 +240,19 @@ const changeDate  = (name, date) => {
  
   }
    
+  const chooseTemplate = (e) => {
+    e.preventDefault()
+    const name = e.target.dataset.template
+    e.target.parentElement.classList.toggle('focuz')
+    setDatas({...datas,
+     template:name,
+      })
+
+  }
+
   const value = {
     users,
+    chooseTemplate,
     isLogin,
     productArr,
     handlerChange,
@@ -225,7 +264,8 @@ const changeDate  = (name, date) => {
     deleteSkill,
     getInputSkill,
     addSkill,
-    skills
+    skills,
+    ImageChange 
 }
    
    
@@ -240,6 +280,9 @@ const changeDate  = (name, date) => {
       <Route path='/create-cv/:id' element={ <CreateCv />} /> 
       <Route path='/print/' element={ <CvPage /> } /> 
       <Route path='/create-cv2/' element={<CreateCv2 method={method} datas={datas} handlerChange={handlerChange}/> } /> 
+      <Route path='/template/' element={ <Template /> } /> 
+      <Route path='/template2/' element={ <CvTemplate /> } /> 
+
       <Route path='*' element={<NotFound />} />
     </Routes>
 </BrowserRouter>

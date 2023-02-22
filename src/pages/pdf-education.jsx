@@ -8,9 +8,9 @@ import { style } from './style'
 const PdfEducation = ({value}) => {
 
     return(
-<View style={style.rows}>
+<View style={style.flex_col}>
 	    <Text style={style.divider}>Education</Text>
-		<PdfEducationPart1 value={value} />
+<PdfEducationPart1 value={value} />
  <PdfEducationPart2 value={value} />
 </View>
     )

@@ -14,7 +14,7 @@ const PdfExperience  = ({value}) => {
     const startDate = dates.toLocaleDateString('en-US', options).replace(/\//g, '-');
 
     return(
-<View style={style.rows}>
+<View style={style.flex_col}>
 	<Text style={style.divider}>Work Experience</Text>
 	<PdfExperiencePart1 value={value} />
     <PdfExperiencePart2 value={value}/>

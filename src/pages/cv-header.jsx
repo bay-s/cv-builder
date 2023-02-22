@@ -3,6 +3,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import ErrorMessage from './error-message';
 import { AppContext } from '../App';
+import UploadAvatar from './upload-avatar';
 
 
 const CvHeader = () => {
@@ -43,17 +44,19 @@ const CvHeader = () => {
 
 <form className='is-flex flex-column gap-1' onSubmit={value.addSkill }>
 
-<div class="field is-horizontal">
-<div class="field-body">
-    <div class="field">
+<div className='field is-flex align-center gap-3'>
+<UploadAvatar />
+<div className='is-flex flex-column w-100'>
+<div class="field">
     <label class="label">First Name</label>
     <input class="input" type="text" name='firstname' defaultValue={value.data.firstname}   onChange={value.handlerChange}/>
-    </div>
-    <div class="field">
+</div>
+
+ <div class="field">
     <label class="label">Surname</label>
     <input class="input " type="text" name='surename' defaultValue={value.data.surename}  onChange={value.handlerChange}/>
-    </div>
-  </div>
+ </div>
+</div>
 </div>
 
 <div class="field">

@@ -7,15 +7,15 @@ import Cookies from 'js-cookie'
 
 const Header = () => {
  const {value} = useContext(AppContext)
- const desiredUserId = value.data.user_id;
- const filteredItems = value.productArr.toString() === '' ? '' : value.productArr.filter(obj => obj.user_id === desiredUserId);
+//  const desiredUserId = value.data.user_id;
+//  const filteredItems = value.productArr.toString() === '' ? '' : value.productArr.filter(obj => obj.user_id === desiredUserId);
 
     return(
-<header className='headers py-2 navbar is-fixed-top mb-6'>
+<header className='headers py-1 navbar is-fixed-top mb-6'>
 <nav class="navbar mx-6 is-flex justify-between w-100 no-shadow" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <Link class="navbar-item" to='/'>
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
+    <Link class="navbar-item main-title has-text-link is-size-3" to='/'>
+     CvBuilder
     </Link>
   </div>
 

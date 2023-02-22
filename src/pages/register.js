@@ -103,9 +103,9 @@ const RegisterUser = async (e) => {
             <div class="column is-5 box p-0">
 
             <div class="is-flex justify-center p-5">
-               <a href="index.html">
-                <img src="https://bulma.io/images/bulma-logo.png" class="mx-auto" width="112" height="28" />    
-               </a>
+             <Link to='/' className='main-title has-text-link is-size-2'>
+              CvBuilder
+             </Link>
             </div>
             <hr class="navbar-divider" />
 

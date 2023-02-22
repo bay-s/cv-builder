@@ -6,33 +6,39 @@ import ExperiencePart from './experience-part';
 import ExperiencePart1 from './experience-part1';
 
 
-const CvRightPage = ({refs}) => {
+const CvTemplate = ({refs}) => {
 const {value} = useContext(AppContext)
 const options = { month: 'short', day: '2-digit', year: 'numeric' };
 const dates = new Date(value.data.birth_date);
 const birth = dates.toLocaleDateString('en-US', options).replace(/\//g, '-');
 
     return(
-<section className='box no-bg'  ref={refs} >	
-        <div className='is-flex flex-column gap-4'>
+<section className='box '  ref={refs} >	
+  <div className='is-flex flex-column gap-4'>
         <header className='is-flex flex-column gap-2 border-butt py-2'>
                 {/* NAMES */}
-         <ul className='is-flex align-center gap-2'>
-            <h3 className='is-title is-size-4 is-bold'>
+<article className='is-flex align-center justify-between'>
+  <div className='is-flex align-center gap-2'>
+  <h3 className='is-title is-size-4 is-bold'>
                 {value.data.firstname === '' ? 'First name' : value.data.firstname}
-            </h3>
-            <h3 className='is-title is-size-4 is-bold'>
+</h3>
+<h3 className='is-title is-size-4 is-bold'>
             {value.data.surename === '' ? 'Surename' : value.data.surename}
-            </h3>
-         </ul>
+</h3>
+  </div>
+  <figure class="image is-96x96 avatar">
+  <img class="is-rounded" src={value.data.imgUpload !== '' ? value.data.imgUpload : "https://bulma.io/images/placeholders/128x128.png"}  />
+       </figure>
+ </article>
          {/* END NAMES */}
 		 <p className='lh-base is-title is-size-7'>
 			{
-				value.data.about === '' ?  'Write something about yourself...'
+				value.data.about === '' ?  'Sumary..'
 				: value.data.about
 			}
 		 </p>
          {/* ADRESS */}
+
          <div className='is-flex justify-between align-center'>
         <div className='is-flex flex-column gap-1'>
 		<ul className='is-flex align-center gap-2'>
@@ -110,5 +116,5 @@ const birth = dates.toLocaleDateString('en-US', options).replace(/\//g, '-');
     )
 }
 
-export default CvRightPage
+export default CvTemplate
 
