@@ -15,13 +15,13 @@ const birth = dates.toLocaleDateString('en-US', options).replace(/\//g, '-');
     return(
 <section className='box '  ref={refs} >	
   <div className='is-flex flex-column gap-4'>
-        <header className='is-flex flex-column gap-2 border-butt py-2'>
+        <header className='is-flex flex-column gap-1 border-butt py-2'>
                 {/* NAMES */}
 <article className='is-flex align-center justify-between'>
   <div className='is-flex align-center gap-2'>
   <h3 className='is-title is-size-4 is-bold'>
                 {value.data.firstname === '' ? 'First name' : value.data.firstname}
-</h3>
+  </h3>
 <h3 className='is-title is-size-4 is-bold'>
             {value.data.surename === '' ? 'Surename' : value.data.surename}
 </h3>
@@ -31,12 +31,17 @@ const birth = dates.toLocaleDateString('en-US', options).replace(/\//g, '-');
        </figure>
  </article>
          {/* END NAMES */}
-		 <p className='lh-base is-title is-size-7'>
-			{
+        {/* SUMMARY */}
+<div className='is-flex flex-column gap-1 align-start '>
+<h3 className='is-bold is-title '>Summary</h3>
+<p className='lh-base txt-small'>
+{
 				value.data.about === '' ?  'Sumary..'
 				: value.data.about
 			}
-		 </p>
+</p>
+</div>
+   {/* END SUMMARY */}
          {/* ADRESS */}
 
          <div className='is-flex justify-between align-center'>
@@ -45,7 +50,7 @@ const birth = dates.toLocaleDateString('en-US', options).replace(/\//g, '-');
             <h3 className='is-title is-size-7 is-bold'> {value.data.city === '' ? 'City' : value.data.city}</h3>
             <h3 className='is-title is-size-7 is-bold'> {value.data.province === '' ? 'Province' : value.data.province}</h3>
             <h3 className='is-title is-size-7 is-bold'> {value.data.post === '' ? 'Post Code' : value.data.post}</h3>
-         </ul>
+    </ul>
 		 <ul className='is-flex align-center gap-2'>
 			<li>
 			<h3 className='is-title is-bold txt-small'>Date of birth :</h3>

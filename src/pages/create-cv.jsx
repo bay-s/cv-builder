@@ -66,7 +66,7 @@ switch (string_id) {
 
 let template;
 switch (value.data.template) {
-  case 'template':
+  case 'template0':
     template = <CvTemplate  refs={ input } />;
     break;
   case 'template1':

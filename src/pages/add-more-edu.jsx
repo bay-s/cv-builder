@@ -14,6 +14,7 @@ const AddMoreEducation = () => {
 		value.submitEducation()
 		navigate('/create-cv/education')
 	  }
+ 
     return(
 <div className='is-flex flex-column gap-6 p-4'>
 <h3 className='is-title is-bold is-size-4'>Review your experience</h3>

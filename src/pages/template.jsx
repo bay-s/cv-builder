@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from '../App';
 import img4 from '../img/template.PNG'
@@ -8,9 +8,11 @@ import Cookies from 'js-cookie'
 
 const  Template = () =>  {
  const {value} = useContext(AppContext)
+ const arr = [img4,img5]
  const navigate = useNavigate()
 const product = Cookies.get('template') 
 const templatetArr = product === undefined ? '' : JSON.parse(product)
+const [activeIndex, setActiveIndex] = useState(0);
 
 
  const isEmpty = (e) => {
@@ -31,7 +33,13 @@ const templatetArr = product === undefined ? '' : JSON.parse(product)
   }
  }
 
-
+const activeItems = (e) => {
+e.preventDefault()
+const name = e.target.dataset.template
+const index = parseInt(e.target.dataset.index)
+value.chooseTemplate(name) 
+setActiveIndex(index)
+}
 
 
 	return (
@@ -39,21 +47,22 @@ const templatetArr = product === undefined ? '' : JSON.parse(product)
   
   <div className='columns is-multiline' >
 
+
+  {arr.map((img, index) => (
+
 <div className='column is-4'>
 
-<figure class="image is-4by5 is-clickable template" data-template='template' onClick={value.chooseTemplate}>
-  <img src={img4} data-template='template'/>
+<figure className={index === activeIndex ? "image is-4by5 is-clickable template focuz" : "image is-4by5 is-clickable template"} data-template={`template${index}`} data-index={index} key={index}
+          onClick={activeItems}>
+  <img src={img}  data-template={`template${index}`} data-index={index} />
 </figure>
 
 </div>
 
-<div className='column is-4'>
+      ))}
 
-<figure class="image is-4by5 is-clickable template" data-template='template1' onClick={value.chooseTemplate}>
-  <img src={img5} data-template='template1'/>
-</figure>
 
-</div>
+
 
   </div>
 

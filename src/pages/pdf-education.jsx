@@ -8,7 +8,7 @@ import { style } from './style'
 const PdfEducation = ({value}) => {
 
     return(
-<View style={style.flex_col}>
+<View style={[style.flex_col,style.gap_1]}>
 	    <Text style={style.divider}>Education</Text>
 <PdfEducationPart1 value={value} />
  <PdfEducationPart2 value={value} />

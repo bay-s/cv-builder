@@ -10,9 +10,6 @@ export const style = StyleSheet.create({
 	  marginVertical:25,
 	  paddingHorizontal: 30,
 	},
-	section:{
-
-	},
 	section_inner:{
 		flexDirection:'row',
 		justifyContent:'space-between',
@@ -28,10 +25,6 @@ export const style = StyleSheet.create({
 		flexDirection:'column',
 		gap:10,
 		marginBottom:10
-	},
-	rows:{
-		flexDirection:'column',
-		gap:10,
 	},divider:{
 		paddingBottom:10,
 		borderBottom:1,
@@ -48,31 +41,41 @@ export const style = StyleSheet.create({
 		flexWrap:'wrap'
 	},flex_col:{
 		flexDirection:'column',
-		gap:15,
+	},
+	align_center:{
+		alignItems:'center'
+	},
+	align_start:{
+		alignItems:'flex-start'
+	},
+	align_end:{
+		alignItems:'flex-end'
 	},
     fs_sm:{
-        fontSize:12
+        fontSize:10,
+		lineHeight:1.5,
+		fontWeight:'normal'
     },
     fs_7:{
-        fontSize:14
+        fontSize:12
     },   
     fs_6:{
-        fontSize:16
+        fontSize:14
     },
     fs_5:{
-        fontSize:18
+        fontSize:16
     },
     fs_4:{
-        fontSize:20
+        fontSize:18
     },
     fs_3:{
-        fontSize:24
+        fontSize:20
     },
     fs_2:{
-        fontSize:28
+        fontSize:22
     },
     fs_1:{
-        fontSize:32
+        fontSize:24
     },
     lh_base:{
         lineHeight:1.5
@@ -93,7 +96,74 @@ export const style = StyleSheet.create({
 		width:128,
 		height:128,
 		'object-fit':'contain',
-		borderRadius:'50%'
+		borderRadius:'50%',
+		objectFit:'cover'
+	},
+	gap_sm:{
+		gap:6
+	},
+	gap_1:{
+		gap:15
+	},
+	gap_2:{
+		gap:30
+	},
+	gap_3:{
+		gap:45
+	},
+	gap_4:{
+		gap:60,
+	},
+	gap_4:{
+		gap:75,
+	},
+	p_1:{
+		padding:15
+	},
+	p_2:{
+		padding:30
+	},
+	p_3:{
+		padding:45
+	},
+	p_4:{
+		padding:60
+	},
+	p_5:{
+		padding:75
+	},
+	px_1:{
+		paddingHorizontal:15
+	},
+	px_2:{
+		paddingHorizontal:30
+	},
+	px_3:{
+		paddingHorizontal:45
+	},
+	px_4:{
+		paddingHorizontal:60
+	},
+	px_5:{
+		paddingHorizontal:75
+	},
+	py_1:{
+		paddingVertical:15
+	},
+	py_2:{
+		paddingVertical:30
+	},
+	py_3:{
+		paddingVertical:45
+	},
+	py_4:{
+		paddingVertical:60
+	},
+	py_5:{
+		paddingVertical:75
+	},
+	w_100:{
+	width:'100%'
 	}
   });
   

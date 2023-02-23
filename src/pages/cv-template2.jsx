@@ -1,35 +1,51 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AppContext } from '../App';
+import EducationPart from './education-part';
+import EducationPart1 from './education-part1';
+import ExperiencePart from './experience-part';
+import ExperiencePart1 from './experience-part1';
 
-const CvTemplate2 = () => {
 
+const CvTemplate2 =  ({refs}) => {
+   const {value} = useContext(AppContext)
+   const options = { month: 'short', day: '2-digit', year: 'numeric' };
+   const dates = new Date(value.data.birth_date);
+   const birth = dates.toLocaleDateString('en-US', options).replace(/\//g, '-');
+   
     return(
 
 <div className='columns is-multiline is-centered'>
 {/* COL LEFT */}
  <div className='column is-5 has-background-dark'>
-<div className='box no-bg is-flex flex-column gap-2 align-center txt-white'>
+<div className='box no-bg is-flex flex-column gap-1 align-center txt-white'>
  <ul className='is-flex flex-column'>
-<li> <h3 className='is-bold is-title txt-white is-size-3'>
-John
-</h3></li>
-<li><h3 className='is-bold is-title  txt-white is-size-3'>
-Doe
-</h3></li>
+<li> 
+<h3 className='is-bold is-title txt-white is-size-3'>
+{value.data.firstname === '' ? 'First name' : value.data.firstname}
+</h3>
+</li>
+<li>
+<h3 className='is-bold is-title  txt-white is-size-3'>
+{value.data.surename === '' ? 'Surename' : value.data.surename}
+</h3>
+</li>
  </ul>
-<figure class="image is-128x128">
-  <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" />
+<figure class="image is-128x128 avatar">
+<img class="is-rounded" src={value.data.imgUpload !== '' ? value.data.imgUpload : "https://bulma.io/images/placeholders/128x128.png"}  />
 </figure>
 
 </div>
 
 <div className='is-flex flex-column gap-2 align-start p-3 txt-white'>
 <h3 className='txt-white is-title border-butt '>Skills </h3>
-<ul className='is-flex flex-column gap-1 dot-list px-4'>
- <li className='txt-small'>HTML</li>
- <li className='txt-small'>JAVASCRIPT</li>
- <li className='txt-small'>CSS</li>
- <li className='txt-small'>MySql</li>
- <li className='txt-small'>PHP</li>
+<ul className='is-flex flex-column gap-1 dot-list px-4 is-size-7'>
+{
+value.skills.map((skill, index) => (
+<li className='' key={index}>
+{skill}{' '}
+</li>
+))
+}
 </ul>
 
 </div>
@@ -41,19 +57,35 @@ Doe
 <section className='is-flex flex-column gap-1'>
    {/* ADRESS */}
 <ul className='is-flex flex-column align-start'>
-   <li className='txt-small is-title'>City, Province, Postal Code</li>
-   <li className='txt-small is-title'>(+62) 8958989</li>
    <li className='txt-small is-title'>
-      <a href=''>youremail@gmail.com</a>
+   {value.data.city === '' ? 'City' : value.data.city} ,
+   {value.data.province === '' ? 'Province' : value.data.province} , 
+   {value.data.post === '' ? 'Post Code' : value.data.post}
    </li>
+   <li className='txt-small is-title'>
+   {
+		value.data.phone === '' ? 'Your phone number' : value.data.phone
+	}
+   </li>
+   <li className='txt-small is-title'>
+      <a href='' className='underline'>{value.data.email === '' ? 'Youremail@gmail.com' : value.data.email}</a>
+   </li>
+<li className='is-flex align-center gap-1'>
+<span className='is-title'>Date of birth :</span>
+<span className=''>{birth}</span>
+</li>
 </ul>
+
    {/* ADRESS */}
    {/* SUMMARY */}
 <div className='is-flex flex-column gap-1 align-start p-3 border-butt'>
 <h3 className='is-bold is-title '>Summary</h3>
-{/* <p className='lh-base txt-small'>
-AdBlock is free, user-supported software. It's important to us that anyone can use our software, regardless of whether they can contribute or not. But AdBlock isn't free to operate. We have salaries to pay and infrastructure costs to cover to support our 70 million users worldwide. Thankfully, many users do support AdBlock by contributing what they can afford to help support AdBlock's ongoing development. We couldn't exist without you. If you're able to support us, we'd appreciate it. Every contribution helps!
-</p> */}
+<p className='lh-base txt-small'>
+{
+				value.data.about === '' ?  'Sumary..'
+				: value.data.about
+}
+</p>
 </div>
    {/* END SUMMARY */}
     {/* START EDUCATION */}
@@ -62,104 +94,18 @@ AdBlock is free, user-supported software. It's important to us that anyone can u
                   <i class="fa fa-university " aria-hidden="true"></i>
                   <h3 className='is-title is-bold'>Education</h3>
 				</div>
-
-				<div className='is-flex flex-column gap-2'>
-                     <ul className='is-flex flex-column gap-1 txt-small is-title'>
-                        <li className='is-flex align-center gap-1'>
-                            <span className=''>
-                            Your school name
-                            </span>
-                            -
-                            <span className=''>
-                            Your school name
-                            </span>
-                        </li>
-                        <li className='is-flex align-center gap-1'>
-                            <span className=''> FIELD OF STUDY</span>
-                        </li>
-                        <li className='is-flex align-center gap-1'>
-                            <span className=''>YEAR OF GRADUATION</span>
-                        </li>
-                     </ul>
-			    </div>
+          <EducationPart1 data={value.data}/>
+			 <EducationPart data2={value.data2}/>
 	 </article>
 {/* END EDUCATION */}
-{/* START SKILL */}
-    <article className='is-flex flex-column gap-1 my-4'>
-			<div className='is-flex align-center gap-1  border-butt'>
-                <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
-                <h3 className='is-title is-bold'>Skills</h3>
-			 </div>
-
-				<div className='is-flex flex-column gap-2'>
-                     <ul className='is-flex align-center flex-wrap gap-1 txt-small is-title dot-list px-4'>
-                        <li className=''>
-                           HTML
-                        </li>
-                        <li className=''>
-                           CSS
-                        </li>
-                        <li className=''>
-                          PHP
-                        </li>
-                        <li className=''>
-                          BOOTSTRAP
-                        </li>
-                        <li className=''>
-                          JAVASCRIPT
-                        </li>
-                        <li className=''>
-                           JQUERY
-                        </li>
-                        <li className=''>
-                           REACTJS
-                        </li>
-                        <li className=''>
-                           MYSQL
-                        </li>
-                        <li className=''>
-                          REDUX
-                        </li>
-                     </ul>
-			    </div>
-	 </article>
-{/* END SKILL */}
 {/* START JOB EXPERIENCE */}
 <article className='is-flex flex-column gap-1'>
 				<div className='is-flex align-center gap-1 border-butt'>
 				  <i class="fa fa-suitcase " aria-hidden="true"></i>
                   <h3 className=' is-title is-bold'>Job Experience</h3>
 				</div>
-
-      <div className='is-flex flex-column gap-2'>
-                     <ul className='is-flex flex-column gap-1 txt-small is-title'>
-                        <li className='is-flex align-center'>
-                            <span className='is-title is-bold'>
-                            Your Job title
-                            </span>
-                        </li>
-                        <li className='is-flex align-center gap-1'>
-                            <span className='is-title is-bold'>
-                            Company name
-                            </span>
-                            -
-                            <span className=''>
-                            Job location
-                            </span>
-                            -
-                            <span className=''>
-                            Job Country
-                            </span>
-                        </li>
-                        <li className='is-flex align-center gap-1'>
-                            <span className=''>
-                        STARTDATE to ENDDATE
-                            </span>
-                        </li>
-                     </ul>
-			    </div>
-
-
+            <ExperiencePart1 data={value.data} />
+            <ExperiencePart data2={value.data2} />
 	 </article>
 {/* END JOB EXPERIENCE */}
    </section>

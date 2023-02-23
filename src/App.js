@@ -14,6 +14,7 @@ import CreateCv2 from "./pages/create-cv2"
 import Template from "./pages/template"
 import CvTemplate2 from "./pages/cv-template2"
 import CvTemplate from "./pages/cv-template"
+import CvPage2 from "./pages/cv-page2"
 
 
 export const AppContext = createContext()
@@ -240,12 +241,12 @@ console.log(datas.template);
  
   }
    
-  const chooseTemplate = (e) => {
-    e.preventDefault()
-    const name = e.target.dataset.template
-    e.target.parentElement.classList.toggle('focuz')
+  const chooseTemplate = (id) => {
+    // e.preventDefault()
+    // const name = e.target.dataset.template
+    console.log(id);
     setDatas({...datas,
-     template:name,
+     template:id,
       })
 
   }
@@ -268,7 +269,21 @@ console.log(datas.template);
     ImageChange 
 }
    
+
+
    
+let templates;
+switch (datas.template) {
+  case 'template0':
+    templates = <CvPage />;
+    break;
+  case 'template1':
+    templates = <CvPage2 />;
+    break;
+  default:
+    templates = null;
+}
+
   return (
 <AppContext.Provider value={{value}}>
 <BrowserRouter>
@@ -278,7 +293,8 @@ console.log(datas.template);
       <Route path='/register/' element={ <Register /> } /> 
       <Route path='/login/' element={ <Login isLogin={isLogin} /> } /> 
       <Route path='/create-cv/:id' element={ <CreateCv />} /> 
-      <Route path='/print/' element={ <CvPage /> } /> 
+      {/* <Route path='/print/' element={ <CvPage /> } />  */}
+      <Route path='/print/' element={ templates } /> 
       <Route path='/create-cv2/' element={<CreateCv2 method={method} datas={datas} handlerChange={handlerChange}/> } /> 
       <Route path='/template/' element={ <Template /> } /> 
       <Route path='/template2/' element={ <CvTemplate /> } /> 

@@ -10,7 +10,7 @@ const ExperiencePart1 = ({data}) => {
     
     return(
 
-        <div className='is-flex align-start justify-between'>
+        <div className='is-flex align-start justify-between is-size-7'>
         <ul className='is-flex flex-column'>
            <li className='is-flex align-start w-100 gap-1'>
                  <span className='is-title'>
@@ -46,16 +46,17 @@ const ExperiencePart1 = ({data}) => {
                  }
                  </span>
             </li>
-           </ul>
-           <ul className='is-flex flex-column'>
-           <li className='is-flex align-start flex-column'>
-            <h4 className='is-title is-bold'>
-                       {
+            <li className='is-flex align-start gap-1'>
+                 <span className='is-title'>
+                 {
                            data.job_title === '' ? 'Your job title'
                            : data.job_title
                        }
-           </h4>
-           <span className='is-title '>
+                 </span>
+                 <span className='is-title '>
+                   -
+                 </span>
+                 <span className='is-title '>
                  {
                    !data.employer ? 'Company name'
                    : data.employer

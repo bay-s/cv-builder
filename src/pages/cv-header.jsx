@@ -25,7 +25,7 @@ const CvHeader = () => {
 
   const confirms = (e) => {
     e.preventDefault()
-    if(!value.data.firstname || !value.data.surename || !value.data.birth_date || !value.data.city || !value.data.province || !value.data.post || !value.data.phone || !value.data.email || !value.data.about){
+    if(!value.data.imgUpload || !value.data.firstname || !value.data.surename || !value.data.birth_date || !value.data.city || !value.data.province || !value.data.post || !value.data.phone || !value.data.email || !value.data.about){
       setMessage({
         pesan:'Please fill all input',
         error:true,

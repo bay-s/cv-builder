@@ -13,22 +13,31 @@ const PdfExperiencePart1  = ({value}) => {
 
     return(
 <View style={[style.flex_between,style.fs_sm]}>
-<View style={style.flex_col}>
+
+<View style={[style.flex_col,style.gap_sm]}>
+
 <View style={style.flex}>
   <Text>{startDate}</Text>
   <Text>To</Text>
   <Text>{endDate}</Text>
 </View>
+
 <View style={style.flex}>
   <Text>{value.data.city_job}</Text>
   <Text>-</Text>
   <Text>{value.data.country}</Text>
 </View>
-</View>
-<View style={style.flex_col}>
+
+<View style={style.flex}>
   <Text>{value.data.job_title}</Text>
+  <Text>-</Text>
   <Text>{value.data.employer}</Text>
 </View>
+
+</View>
+
+
+
 </View>
     )
 }
