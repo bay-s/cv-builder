@@ -10,12 +10,12 @@ console.log(typeof value.data.imgUpload)
     <View style={style.flex_col}>
         <View style={style.flex_between}>
         <View style={style.flex}>
-          <Text  style={style.fw_2}>{value.data.firstname }</Text>
-          <Text style={style.fw_2}>{value.data.surename}</Text>
+          <Text  style={style.fs_2}>{value.data.firstname }</Text>
+          <Text style={style.fs_2}>{value.data.surename}</Text>
         </View>
         <Image src={value.data.imgUpload !== '' ? value.data.imgUpload : "https://bulma.io/images/placeholders/128x128.png"} className="avatars is-rounded" style={style.avatar}/>
         </View>
-           <Text style={style.fs_sm}>{value.data.about}</Text>
+           <Text style={[style.fs_sm,style.p_1]}>{value.data.about}</Text>
      </View>
     )
 }

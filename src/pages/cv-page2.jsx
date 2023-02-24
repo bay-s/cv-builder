@@ -63,7 +63,7 @@ const  CvPage2 = () =>  {
 
   <View style={[styles.left,style.gap_2]}>
      
-  <View style={[style.flex_col,style.align_center]}>
+  <View style={[style.flex_col,style.align_center,style.gap_1]}>
         <View style={style.flex}>
    <Text  style={style.fw_2}>{value.data.firstname }</Text>
    <Text style={style.fw_2}>{value.data.surename}</Text>
@@ -79,7 +79,7 @@ const  CvPage2 = () =>  {
 
   </View>
   {/* END LEFT */}
-  <View style={[style.flex_col,style.gap_2,style.p_1,style.fs_sm]}>
+  <View style={[style.flex_col,style.gap_2,style.p_1,style.fs_sm,styles.right]}>
 {/* HEADER */}
 <PdfAdress value={value} />
 {/* END HEADER */}

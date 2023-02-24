@@ -164,6 +164,9 @@ export const style = StyleSheet.create({
 	},
 	w_100:{
 	width:'100%'
+	},
+	txt_link:{
+		color:'hsl(204, 86%, 53%)'
 	}
   });
   

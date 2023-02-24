@@ -22,7 +22,7 @@ const birth = dates.toLocaleDateString('en-US', options).replace(/\//g, '-');
        </View>
           <View style={style.section_col}>
               <Text>{value.data.phone}</Text>
-              <Text>{value.data.email}</Text>
+              <Text style={style.txt_link}>{value.data.email}</Text>
           </View>
 </View>
     )
