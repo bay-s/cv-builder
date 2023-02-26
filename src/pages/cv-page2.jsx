@@ -53,7 +53,7 @@ const  CvPage2 = () =>  {
    }
 
 	return (
-<div className='container red mx-auto' id='container'>
+<div className='container mx-auto' id='container'>
    <div className='cv-container'>
 <PDFViewer style={styles.viewer} className='pdf-viewer'>
 {/* Start of the document*/}

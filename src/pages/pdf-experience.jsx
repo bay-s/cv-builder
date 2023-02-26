@@ -15,7 +15,7 @@ const PdfExperience  = ({value}) => {
 
     return(
 <View style={[style.flex_col,style.gap_1]}>
-	<Text style={style.divider}>Work Experience</Text>
+	<Text style={style.divider}>Work Experiencsse</Text>
 	<PdfExperiencePart1 value={value} />
     <PdfExperiencePart2 value={value}/>
 </View>

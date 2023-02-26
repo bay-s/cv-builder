@@ -25,7 +25,7 @@ const CvHeader = () => {
 
   const confirms = (e) => {
     e.preventDefault()
-    if(!value.data.imgUpload || !value.data.firstname || !value.data.surename || !value.data.birth_date || !value.data.city || !value.data.province || !value.data.post || !value.data.phone || !value.data.email || !value.data.about){
+    if(!value.data.imgUpload || !value.data.fullname || !value.data.birth_date || !value.data.city || !value.data.province || !value.data.post || !value.data.phone || !value.data.email || !value.data.about){
       setMessage({
         pesan:'Please fill all input',
         error:true,
@@ -48,14 +48,14 @@ const CvHeader = () => {
 <UploadAvatar />
 <div className='is-flex flex-column w-100'>
 <div class="field">
-    <label class="label">First Name</label>
-    <input class="input" type="text" name='firstname' defaultValue={value.data.firstname}   onChange={value.handlerChange}/>
+    <label class="label">Fullname</label>
+    <input class="input" type="text" name='fullname' defaultValue={value.data.fullname}   onChange={value.handlerChange}/>
 </div>
 
- <div class="field">
+ {/* <div class="field">
     <label class="label">Surname</label>
     <input class="input " type="text" name='surename' defaultValue={value.data.surename}  onChange={value.handlerChange}/>
- </div>
+ </div> */}
 </div>
 </div>
 

@@ -14,8 +14,8 @@ const  CvPage = () =>  {
 	const {value} = useContext(AppContext)
 
 	return (
-<div className='container red mx-auto' id='container'>
-   <div className='cv-container'>
+<div className='container mx-auto' id='container'>
+<div className='cv-container'>
 <PDFViewer style={style.viewer} className='pdf-viewer'>
 {/* Start of the document*/}
 <Document>
@@ -24,9 +24,6 @@ const  CvPage = () =>  {
 {/* ABOUT */}
 <PdfAbout value={value} />
  {/* END ABOUT */}
- {/* ADRESS */}
-<PdfAdress value={value} />
-{/* END ADRESS */}
 {/* JOB EXPERIENCE */}
 <PdfExperience value={value} />
 {/* ENDJOB EXPERIENCE */}

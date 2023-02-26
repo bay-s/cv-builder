@@ -14,34 +14,32 @@ value.data2.job_title.map((el,index) => {
     const dates = new Date(value.data2.start_date[index]);
     const startDate = dates.toLocaleDateString('en-US', options).replace(/\//g, '-');
 
-    return <View style={[style.flex_between,style.fs_sm]}>
+    return <View style={[style.flex_col,style.gap_sm]}>
 
-<View style={[style.flex_col,style.gap_sm]}>
-
-<View style={style.flex}>
-  <Text>{startDate}</Text>
-  <Text>To</Text>
-  <Text>{endDate}</Text>
-</View>
-
-<View style={style.flex}>
-  <Text>{value.data.city_job}</Text>
-  <Text>-</Text>
-  <Text>{value.data.country}</Text>
-</View>
-
-<View style={style.flex}>
-  <Text>{value.data.job_title}</Text>
-  <Text>-</Text>
-  <Text>{value.data.employer}</Text>
-</View>
-
-</View>
-
-
-
-
+    <View style={style.flex_between}>
+    
+    <Text style={[style.fs_sm,style.fw_bold]}>{value.data2.employer[index]}</Text>
+    <View style={[style.flex,style.gap_sm,style.align_center,style.fs_xs]}>
+     <Text>{startDate}</Text>
+     <Text>To</Text>
+     <Text>{endDate}</Text>
     </View>
+    
+    </View>
+    
+    <View style={style.flex_between}>
+    
+    <Text style={[style.fs_sm,style.fw_bold]}>{el}</Text>
+    <View style={[style.flex,style.gap_sm,style.align_center,style.fs_xs]}>
+      <Text>{value.data2.city_job[index]}</Text>
+      <Text>-</Text>
+      <Text>{value.data2.country[index]}</Text>
+    </View>
+    
+    </View>
+    
+    </View>
+        
 })
     )
 }

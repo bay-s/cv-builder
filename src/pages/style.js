@@ -31,14 +31,13 @@ export const style = StyleSheet.create({
 		borderBottomColor:'grey',
 	},
 	flex_between:{
-		flexDirection:'row',
-		justifyContent:'space-between',
-		alignItems:'center'
+		display: 'flex',
+		justifyContent: 'space-between',
+		flexDirection: 'row',
+		alignItems: 'center',
 	},flex:{
-		flexDirection:'row',
-		gap:10,
-		alignItems:'center',
-		flexWrap:'wrap'
+		display:'flex',
+		flexDirection:'row'
 	},flex_col:{
 		flexDirection:'column',
 	},
@@ -50,6 +49,11 @@ export const style = StyleSheet.create({
 	},
 	align_end:{
 		alignItems:'flex-end'
+	},
+	fs_xs:{
+        fontSize:8,
+		lineHeight:1.5,
+		fontWeight:'normal'
 	},
     fs_sm:{
         fontSize:10,
@@ -93,8 +97,8 @@ export const style = StyleSheet.create({
         fontWeight:'lighter' 
     },
 	avatar:{
-		width:128,
-		height:128,
+		width:96,
+		height:96,
 		'object-fit':'contain',
 		borderRadius:'50%',
 		objectFit:'cover'
@@ -167,6 +171,9 @@ export const style = StyleSheet.create({
 	},
 	txt_link:{
 		color:'hsl(204, 86%, 53%)'
+	},
+	txt_grey:{
+		color:'hsl(0, 0%, 48%)'
 	}
   });
   

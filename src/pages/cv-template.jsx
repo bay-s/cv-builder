@@ -20,11 +20,11 @@ const birth = dates.toLocaleDateString('en-US', options).replace(/\//g, '-');
 <article className='is-flex align-center justify-between'>
   <div className='is-flex align-center gap-2'>
   <h3 className='is-title is-size-4 is-bold'>
-                {value.data.firstname === '' ? 'First name' : value.data.firstname}
+                {value.data.fullname === '' ? 'Fullname' : value.data.fullname}
   </h3>
-<h3 className='is-title is-size-4 is-bold'>
+{/* <h3 className='is-title is-size-4 is-bold'>
             {value.data.surename === '' ? 'Surename' : value.data.surename}
-</h3>
+</h3> */}
   </div>
   <figure class="image is-96x96 avatar">
   <img class="is-rounded" src={value.data.imgUpload !== '' ? value.data.imgUpload : "https://bulma.io/images/placeholders/128x128.png"}  />

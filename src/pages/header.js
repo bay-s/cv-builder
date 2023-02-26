@@ -20,24 +20,25 @@ const Header = () => {
   </div>
 
 {/* NAVBAR END */}
-<div class="is-flex align-center">
 
 {
   !value.isLogin ? 
-<Link className='is-flex align-item gap-1 txt-dark button' to='/register'>
+<div class="is-flex align-center gap-1">
+<Link className='is-flex align-item gap-1 txt-dark button is-small' to='/register'>
 <i class="fa fa-user is-size-6" aria-hidden="true"></i>
 <span className='txt-dark is-title'>Register</span>
 </Link>
-:
-<Link className='is-flex align-item gap-1 txt-dark button' to='/login'>
+
+<Link className='is-flex align-item gap-1 txt-dark button is-small' to='/login'>
 <i class="fa fa-user is-size-6" aria-hidden="true"></i>
 <span className='txt-dark is-title'>Login</span>
-</Link>
-}
-    {/* <div class="navbar-item">
-     <DropDownHeader />
-    </div> */}
+</Link> 
 </div>
+:
+<div class="navbar-item">
+     <DropDownHeader />
+</div>
+}
 {/* end navbar end */}
 
 </nav>

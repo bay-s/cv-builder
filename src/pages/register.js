@@ -6,12 +6,6 @@ import { insertUserData, RegisterAccount } from './insert-data';
 
 const Register = () => {
 
-const [selectedOption, setSelectedOption] = useState('');
-const options = [
-  'Seller',
-  'Buyer'
-]  
-
 const [message, setMessage] = useState({
     pesan: "",
     isError: false,
@@ -23,8 +17,7 @@ const [values,setValues] = useState({
   username:"",
   email:"",
   fullname:'',
-  password:"",
-  main_role:''
+  password:""
 })
 
  const  handlerChange = async (e) => {
@@ -40,7 +33,7 @@ const RegisterUser = async (e) => {
   setMessage({ ...message, isSubmit: true });
   e.preventDefault();
   console.log(values);
-    if(!values.email || !values.password || !values.username  || !values.fullname || !values.main_role){
+    if(!values.email || !values.password || !values.username  || !values.fullname){
       const pesan = `Input are Required`
       console.log(message);
       errMessage(pesan)
@@ -70,6 +63,7 @@ const RegisterUser = async (e) => {
       sukses: false,
     });
   }
+
 // SUCCESS MESSAGE
   const successMessage = (args) =>{
     setMessage({ ...message, 
@@ -87,14 +81,6 @@ const RegisterUser = async (e) => {
       }else  successMessage(data)
   }
 
-  
-  const handleChange = (event) => {
-    setSelectedOption(event.target.value);
-    setValues({
-      ...values,
-     main_role:event.target.value
-    });
-  }
 
     return(
 <div className='container ' id='container'>
@@ -139,24 +125,6 @@ const RegisterUser = async (e) => {
                     <label class="label">Password</label>
                     <div class="control">
                       <input class="input is-medium" name='password' type="password" onChange={handlerChange}/>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="label">Register as</label>
-                    <div class="control ">
-<div class="select w-100">
-<select className='w-100 ' value={selectedOption} onChange={handleChange }>
-<option className='has-text-dark' value=''>
-  Select Role
-</option>
-  {options.map(option => (
-        <option className='has-text-dark' key={option} value={option}>
-          {option}
-        </option>
-  ))}
-</select>
-</div>
                     </div>
                 </div>
 

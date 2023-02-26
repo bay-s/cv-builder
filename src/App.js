@@ -73,7 +73,7 @@ const App = () => {
 
   const fetchData = async (id) => {
     const {data,error} = await supabase
-    .from('Users')
+    .from('users')
     .select()
     .eq('user_id',id)
     .single()
@@ -121,8 +121,7 @@ const deleteSkill = (index) => {
 
   const [datas,setDatas] = useState({
     about:'',
-    firstname:'',
-    surename:'',
+    fullname:'',
     post:'',
     phone:'',
     email:'',
@@ -253,6 +252,7 @@ console.log(datas.template);
 
   const value = {
     users,
+    userData:data,
     chooseTemplate,
     isLogin,
     productArr,
@@ -269,9 +269,7 @@ console.log(datas.template);
     ImageChange 
 }
    
-
-
-   
+ 
 let templates;
 switch (datas.template) {
   case 'template0':
@@ -294,9 +292,9 @@ switch (datas.template) {
       <Route path='/login/' element={ <Login isLogin={isLogin} /> } /> 
       <Route path='/create-cv/:id' element={ <CreateCv />} /> 
       {/* <Route path='/print/' element={ <CvPage /> } />  */}
-      <Route path='/print/' element={ templates } /> 
+      <Route path='/print/' element={ isLogin ? templates : <Login isLogin={isLogin} />} /> 
       <Route path='/create-cv2/' element={<CreateCv2 method={method} datas={datas} handlerChange={handlerChange}/> } /> 
-      <Route path='/template/' element={ <Template /> } /> 
+      <Route path='/template/' element={ isLogin ?  <Template /> :  <Login isLogin={isLogin} />  } /> 
       <Route path='/template2/' element={ <CvTemplate /> } /> 
 
       <Route path='*' element={<NotFound />} />

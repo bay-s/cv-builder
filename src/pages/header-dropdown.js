@@ -20,9 +20,9 @@ const DropDownHeader = () => {
       value.isLogin ? 
   <div class="button is-rounded is-flex align-center gap-2"  aria-haspopup="true" aria-controls="dropdown-menu3">
 <figure class="image is-32x32">
-  <img class="is-rounded" src={!value.data.avatar ? akun : value.data.avatar} />
+  <img class="is-rounded" src={!value.userData.avatar ? akun : value.userData.avatar} />
 </figure>
-      <h3 className=''>{value.data.username}</h3>
+      <h3 className=''>{value.userData.username}</h3>
   </div>
       : 
       <div class="button is-rounded is-flex gap-2"  aria-haspopup="true" aria-controls="dropdown-menu3">
