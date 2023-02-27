@@ -6,7 +6,6 @@ import akun from '../img/akun.jpg'
 
 const DropDownHeader = () => {
  const {value} = useContext(AppContext)
- console.log(value.isLogin);
   const Logout = async e => {
     e.preventDefault()
     const { error } = await supabase.auth.signOut()
@@ -33,10 +32,10 @@ const DropDownHeader = () => {
   </div>
   <div class="dropdown-menu" id="dropdown-menu3" role="menu">
     <div class="dropdown-content">
-    <Link to="/dashboard/profile"  class={value.isLogin ? "dropdown-item" : 'hide'}>
+    <Link to={`/profile/${value.userData.username}`}  class={value.isLogin ? "dropdown-item" : 'hide'}>
        Profile
     </Link>
-    <Link to="/dashboard/setting" class={value.isLogin ? "dropdown-item" : 'hide'}>
+    <Link to="/setting/" class={value.isLogin ? "dropdown-item" : 'hide'}>
        Setting
     </Link>
     <div  class={value.isLogin ? "" : 'hide'}>

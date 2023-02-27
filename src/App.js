@@ -12,9 +12,10 @@ import CvPage from "./pages/cv-page"
 import CreateCv from "./pages/create-cv"
 import CreateCv2 from "./pages/create-cv2"
 import Template from "./pages/template"
-import CvTemplate2 from "./pages/cv-template2"
 import CvTemplate from "./pages/cv-template"
 import CvPage2 from "./pages/cv-page2"
+import Profile from "./pages/profile"
+import EditProfileForm from "./pages/edit-profile-form"
 
 
 export const AppContext = createContext()
@@ -291,7 +292,8 @@ switch (datas.template) {
       <Route path='/register/' element={ <Register /> } /> 
       <Route path='/login/' element={ <Login isLogin={isLogin} /> } /> 
       <Route path='/create-cv/:id' element={ <CreateCv />} /> 
-      {/* <Route path='/print/' element={ <CvPage /> } />  */}
+      <Route path='/profile/:id' element={ <Profile /> } /> 
+      <Route path='/setting/' element={ <EditProfileForm /> } /> 
       <Route path='/print/' element={ isLogin ? templates : <Login isLogin={isLogin} />} /> 
       <Route path='/create-cv2/' element={<CreateCv2 method={method} datas={datas} handlerChange={handlerChange}/> } /> 
       <Route path='/template/' element={ isLogin ?  <Template /> :  <Login isLogin={isLogin} />  } /> 

@@ -75,6 +75,7 @@ const  CvPage2 = () =>  {
 {/* START SKILLS */}
 <PdfSkill value={value}/>
 {/* END SKILLS */}
+<Text style={style.fs_sm}>{value.data.about}</Text>
   </View>
 
   </View>

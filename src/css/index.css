@@ -287,7 +287,7 @@ top: 80px !important;
 
 #profile-sidebar{
   position: sticky !important;
-  top:80px !important;
+  top:50px !important;
   /* background-color: rgba(34, 34, 34, 0.267); */
 }
 
@@ -298,7 +298,7 @@ cursor: pointer;
 
 #profile-sidebar li:hover{
   background-color: rgba(128, 128, 128, 0.041);
-  transition: 200ms
+  transition: 200ms;
 }
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Didact+Gothic&family=Frank+Ruhl+Libre:wght@600&family=Ibarra+Real+Nova:ital@1&family=Noto+Sans:wght@500&family=Outfit:wght@300&family=Pacifico&family=Poppins:wght@200&family=Square+Peg&family=Tangerine&display=swap");
 /* END RESET */

@@ -1,13 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { AppContext } from '../App';
-import supabase from '../supabase-config';
 import UploadAvatar from './edit-avatar.js';
 import ErrorMessage from './error-message';
-import ReactQuill from 'react-quill';
 import { UpdateUserProfile } from './insert-data';
 
 
-const EditProfileForm = (props) => {
+const EditProfileForm = () => {
 const {value} = useContext(AppContext)
 
 const [message,setMessage] = useState({
@@ -87,8 +85,9 @@ const updateProfiles = async (e) => {
 
     return(
 
-<>
+<section className='container' id='container'>
  
+<article className='column is-10 mx-auto'>
 <div className='card p-3'>
  <h3 className='is-bold is-title   mt-4'>
  Edit Profile 
@@ -101,44 +100,32 @@ const updateProfiles = async (e) => {
 <div className="field">
 <label className="label ">Username</label>
 <div className="control">
-<input className="input " type="text" name='username' defaultValue={value.data.username} onChange={ handlerChange }/>
+<input className="input " type="text" name='username' defaultValue={value.userData.username} onChange={ handlerChange }/>
 </div>
 </div>
 
 <div className="field">
 <label className="label ">Fullname</label>
 <div className="control">
-<input className="input " type="text" name='fullname' defaultValue={value.data.fullname} onChange={ handlerChange }/>
+<input className="input " type="text" name='fullname' defaultValue={value.userData.fullname} onChange={ handlerChange }/>
 </div>
 </div>
 
 <div className="field">
 <label className="label">Email</label>
 <div className="control">
-<input className="input " type="text" name='fullname' defaultValue={value.data.email} disabled/>
+<input className="input " type="text" name='fullname' defaultValue={value.userData.email} disabled/>
 </div>
-</div>
-
-<div class="field">
-  <label class="label">Address</label>
-  <div class="control">
-    <textarea class="textarea" name='adress' defaultValue={value.data.adress} onChange={ handlerChange }></textarea>
-  </div>
 </div>
 
 <div class="field">
   <label class="label">Bio</label>
   <div class="control">
-    <textarea class="textarea"  name='biodata' defaultValue={value.data.biodata} onChange={ handlerChange }></textarea>
+    <textarea class="textarea"  name='biodata' defaultValue={value.userData.biodata} onChange={ handlerChange }></textarea>
   </div>
 </div>
 
-<div class={value.data.main_role === 'Buyer' ? "field" : 'hide'}>
-  <label class="label">Isi Saldo</label>
-  <div class="control">
-    <input className='input ' type='number ' name='saldo' defaultValue={value.data.saldo} onChange={handlerChange}/>
-  </div>
-</div>
+
 
 <ErrorMessage pesan={message.pesan} isError={message.isError} sukses={message.sukses}/>
 
@@ -148,8 +135,9 @@ const updateProfiles = async (e) => {
 </div>
  </form>
  </div>
+</article>
 
-</>
+</section>
 
     )
 }
